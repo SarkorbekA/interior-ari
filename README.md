@@ -2,7 +2,7 @@
 Site for interior designer
 
 
-**Используемые технологии:**
+**Utilized technologies:**
 * HTML5;
 * CSS3(SCSS);
 * JavaScript;
