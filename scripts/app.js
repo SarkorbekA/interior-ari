@@ -1,4 +1,7 @@
-var swiper = new Swiper(".mySwiper", {
+console.log('Welcome!')
+
+
+var swiperMain = new Swiper(".mySwiper", {
     direction: "vertical",
     spaceBetween: 20,
     loop: true,
@@ -6,6 +9,9 @@ var swiper = new Swiper(".mySwiper", {
         el: ".swiper-pagination",
         clickable: true,
     },
+    controller: {
+        control: swiperArticle
+    }
 });
 
 var swiper = new Swiper(".mySwiper2", {
@@ -16,17 +22,25 @@ var swiper = new Swiper(".mySwiper2", {
 
 
 function scrollToSection() {
-    // const targetBlock = document.getElementById('works');
-    // if (targetBlock) {
-    //     targetBlock.scrollIntoView({ behavior: 'smooth' });
-    // }
-
     const targetBlock = document.getElementById('works');
     if (targetBlock) {
-        const offsetTop = targetBlock.offsetTop - 90;
+        const offsetTop = targetBlock.offsetTop - 80;
         window.scrollTo({
             top: offsetTop,
             behavior: 'smooth'
         })
     }
 }
+
+var swiperArticle = new Swiper(".mySwiperArticle", {
+    loop: true,
+    spaceBetween: 25,
+    allowTouchMove: false,
+    controller: {
+        control: swiperMain
+    }
+});
+
+swiperArticle.controller.control = swiperMain;
+swiperMain.controller.control = swiperArticle;
+
