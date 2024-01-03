@@ -9,20 +9,24 @@ var swiperMain = new Swiper(".mySwiper", {
         el: ".swiper-pagination",
         clickable: true,
     },
-    controller: {
-        control: swiperArticle
-    }
+    // controller: {
+    //     control: swiperArticle
+    // },
+    autoplay: {
+        delay: 3500,
+        pauseOnMouseEnter: true,
+    },
 });
 
 var swiper = new Swiper(".mySwiper2", {
     slidesPerView: 3,
-    spaceBetween: 10,
+    spaceBetween: 16,
     loop: true,
 });
 
 
-function scrollToSection() {
-    const targetBlock = document.getElementById('works');
+function scrollToSection(id) {
+    const targetBlock = document.getElementById(id);
     if (targetBlock) {
         const offsetTop = targetBlock.offsetTop - 80;
         window.scrollTo({
@@ -36,9 +40,9 @@ var swiperArticle = new Swiper(".mySwiperArticle", {
     loop: true,
     spaceBetween: 25,
     allowTouchMove: false,
-    controller: {
-        control: swiperMain
-    }
+    // controller: {
+    //     control: swiperMain
+    // }
 });
 
 swiperArticle.controller.control = swiperMain;
